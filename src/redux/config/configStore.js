@@ -1,3 +1,6 @@
+import { combineReducers, createStore } from "@reduxjs/toolkit";
+import account from "../modules/account";
+
 // 1. 리듀서를 만든다.
 const rootReducer = combineReducers({
   // 만든 리듀서들(modules에서 가져온다)
