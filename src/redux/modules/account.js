@@ -22,7 +22,7 @@ const initialState = {
 };
 
 // Reducer
-const account = (state = { initialState }, action) => {
+const account = (state = initialState, action) => {
   switch (action.type) {
     //  입금 : payload로 받아온 값을 더함
     case DEPOSIT_DOLLAR: {
