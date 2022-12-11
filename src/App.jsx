@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { depositDollar, withdrawDollar } from "./redux/modules/account";
 
 const App = () => {
   // Component state(이 안에서만 씀)
@@ -17,6 +18,16 @@ const App = () => {
     setTempBalance(+value);
   };
 
+  // 입금에 대한 reducer 호출
+  const onClickDepositBalanceHandler = () => {
+    dispatch(depositDollar(tempBalance));
+  };
+
+  // 출금에 대한 reducer 호출
+  const onClickWithdrawBalanceHandler = () => {
+    dispatch(withdrawDollar(tempBalance));
+  };
+
   return (
     <div style={{ padding: "100px" }}>
       <hr />
@@ -25,8 +36,8 @@ const App = () => {
       <br />
       <input type="number" onChange={onBalanceChangeHandler}></input>
       <br />
-      <button>입금</button>
-      <button>출금</button>
+      <button onClick={onClickDepositBalanceHandler}>입금</button>
+      <button onClick={onClickWithdrawBalanceHandler}>출금</button>
     </div>
   );
 };
